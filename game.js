@@ -16,10 +16,9 @@ class Game {
     this.currentPlayerIndex = 0;
     while (true) {
       const columnChoice = this.players[this.currentPlayerIndex].getChoice();
-      this.grid.chooseSquare(
-        columnChoice,
-        this.players[this.currentPlayerIndex].color
-      );
+      this.grid.chooseSquare(columnChoice,
+        this.players[this.currentPlayerIndex].color)
+      
       //changing who's turn it is
       this.currentPlayerIndex++;
       if (this.currentPlayerIndex >= this.players.length) {

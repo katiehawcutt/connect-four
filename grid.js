@@ -10,14 +10,16 @@ class Grid {
       const columnContainer = document.createElement("div");
       column.forEach((squareItem) => {
         const square = document.createElement("div");
-        square.style.backgroundColor = "white";
+        square.style.backgroundColor = squareItem.color || "white";
         square.style.border = "black solid 2px";
         columnContainer.appendChild(square);
       });
       const container = document.querySelector("#container");
+      container.innerHTML = "";
       container.appendChild(columnContainer);
     });
   }
+  
   chooseSquare(columnNumber, playerColor) {
     const index = columnNumber - 1;
     const chosenSquare = this.array[index].find(
@@ -26,9 +28,10 @@ class Grid {
     console.log(chosenSquare);
     console.log(playerColor);
     if (chosenSquare) {
-      chosenSquare.style.backgroundColor = playerColor;
-      chosenSquare.pickSquare(playerColor);
+    //chosenSquare.style.backgroundColor = playerColor;
+    chosenSquare.pickSquare(playerColor);
     }
+    this.draw();
   }
 }
 
