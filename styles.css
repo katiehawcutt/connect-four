@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+}
+
+header {
+  width: 100wv;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-decoration: underline;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 50px;
+}
