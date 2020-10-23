@@ -8,7 +8,6 @@ class Grid {
             .fill()
             .map(() => new Square()) // needed to add another .map otherwise it was the same object 6 times (so all changed color)
       );
-    console.log(this.array);
   }
   draw() {
     const container = document.querySelector("#container"); // moved to top so out of loop
@@ -24,6 +23,7 @@ class Grid {
       });
       container.appendChild(columnContainer);
     });
+    console.log(this.array[0]);
   }
 
   chooseSquare(columnNumber, playerColor) {
@@ -35,6 +35,15 @@ class Grid {
       chosenSquare.pickSquare(playerColor);
     }
     this.draw();
+  }
+
+  checkWinner() {
+    const winner = this.array[0].forEach((square, index) => {
+      if (square.color === [index + 1].square.color) {
+        return true;
+      }
+      console.log(winner);
+    });
   }
 }
 

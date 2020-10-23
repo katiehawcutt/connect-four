@@ -5,6 +5,7 @@ const buttonFour = document.querySelector("#four");
 const buttonFive = document.querySelector("#five");
 const buttonSix = document.querySelector("#six");
 const buttonSeven = document.querySelector("#seven");
+
 class Game {
   constructor(players) {
     this.players = players.map((player) => {
@@ -16,12 +17,16 @@ class Game {
   }
 
   play() {
+    alert(
+      `${this.players[this.currentPlayerIndex].name}, it's your turn first!`
+    );
     buttonOne.addEventListener("click", () => {
       this.grid.chooseSquare(1, this.players[this.currentPlayerIndex].color);
       this.currentPlayerIndex++;
       if (this.currentPlayerIndex >= this.players.length) {
         this.currentPlayerIndex = 0;
       }
+      this.grid.checkWinner();
     });
     buttonTwo.addEventListener("click", () => {
       this.grid.chooseSquare(2, this.players[this.currentPlayerIndex].color);
