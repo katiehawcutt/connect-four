@@ -4,10 +4,10 @@ class Player {
     this.color = color;
   }
 
-  getChoice() {
+  /* getChoice() {
     const columnNumber = parseInt(
       prompt(`${this.name} which column would you like to pick?`)
     );
     return columnNumber;
-  }
+  } */
 }
