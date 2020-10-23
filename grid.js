@@ -38,12 +38,22 @@ class Grid {
   }
 
   checkWinner() {
-    const winner = this.array[0].forEach((square, index) => {
-      if (square.color === [index + 1].square.color) {
-        return true;
+    const winner = [];
+    console.log(this.array[0]);
+    for (let i = 0; i < this.array[0].length; i++) {
+      if (
+        this.array[0][i].color === this.array[0][i + 1].color &&
+        this.array[0][i].color !== null
+      ) {
+        console.log(this.array[0][i].color);
+        console.log(this.array[0][i + 1].color);
+        console.log(winner);
+        return winner.push(true);
+      } else {
+        console.log(winner);
+        return winner.push(false);
       }
-      console.log(winner);
-    });
+    }
   }
 }
 
