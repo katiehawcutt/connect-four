@@ -2,10 +2,18 @@ class Grid {
   constructor() {
     this.array = Array(7)
       .fill()
-      .map(() => Array(6).fill(new Square()));
+      .map(
+        () =>
+          Array(6)
+            .fill()
+            .map(() => new Square()) // needed to add another .map otherwise it was the same object 6 times (so all changed color)
+      );
     console.log(this.array);
   }
   draw() {
+    const container = document.querySelector("#container"); // moved to top so out of loop
+    container.innerHTML = "";
+
     this.array.forEach((column) => {
       const columnContainer = document.createElement("div");
       column.forEach((squareItem) => {
@@ -14,22 +22,17 @@ class Grid {
         square.style.border = "black solid 2px";
         columnContainer.appendChild(square);
       });
-      const container = document.querySelector("#container");
-      container.innerHTML = "";
       container.appendChild(columnContainer);
     });
   }
-  
+
   chooseSquare(columnNumber, playerColor) {
     const index = columnNumber - 1;
     const chosenSquare = this.array[index].find(
       (square) => square.color === null
     );
-    console.log(chosenSquare);
-    console.log(playerColor);
     if (chosenSquare) {
-    //chosenSquare.style.backgroundColor = playerColor;
-    chosenSquare.pickSquare(playerColor);
+      chosenSquare.pickSquare(playerColor);
     }
     this.draw();
   }
