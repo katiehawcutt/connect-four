@@ -26,6 +26,12 @@ class Grid {
     console.log(this.array[0]);
   }
 
+  // write a new method that takes in the columnNumber, playerColor
+  // columnNumber - 1 and save it in a variable called index
+  // array[index].find() first square that color = null; and change the color of the square to the playerColor
+  // also call pickSquare(PlayerColor)
+  // implemented below...
+
   chooseSquare(columnNumber, playerColor) {
     const index = columnNumber - 1;
     const chosenSquare = this.array[index].find(
@@ -56,8 +62,3 @@ class Grid {
     }
   }
 }
-
-// write a new method that takes in the columnNumber, playerColor
-// columnNumber - 1 and save it in a variable called index
-// array[index].find() first square that color = null; and change the color of the square to the playerColor
-// also call pickSquare(PlayerColor)

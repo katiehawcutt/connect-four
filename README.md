@@ -1,19 +1,22 @@
-# Game Hackathon
+# Connect Four
 
-For the next two days we are going to design and build our own game. It is an opportunity to cement what we've learnt about object oriented programming, as well as planning, ideating and MVP.
+![Our Connect Four game](./Images/connect4.PNG)
 
-## Task 1 - Wed afternoon
+#### School of Code Bootcamp - Hackathon Week 5
 
-Choose a game to recreate in code. Use disney ideation, and then break it down to the essence (MVP) and plan what classes you will need, and what state and behavior each class will need. The break each of the behaviors down to a level were you can start coding.
+###### October 2020
 
-## Task 2 - Wed Afternoon
+_The Week 5 Hackathon challenge was to design and build our own game. It was an opportunity to cement everything we'd learnt that week about object oriented programming (OOP), as well as planning, ideating and coming up with an MVP. We had two days to work on this hackathon rather than the usual one day and we were working in pairs._
 
-Put each of your classes into a trello board with a todo, doing and done column.
+### Main Learning Points:
 
-## Task 3 - Build Your MVP
-
-Get the simplest possible version of your game working.
-
-## Task 4 - Next steps
-
-Choose what your next steps are, what functionality would make the biggest impact. If you've used alert/prompt for your MVP. Display your game on the page either with the DOM or your new canvas games.
+- I learnt a lot about OOP:
+  - The two building blocks of Classes in Object Oriented Programming are State and Behaviours
+  - Each Class in OOP should be responsible for changing its own properties
+  - OOP allows for classes in a program to be easily re-used and scaled
+  - It helps to build code that can be easily maintained and modified
+  - It helps to conceptualise programming problems by breaking them down into
+    separate parts
+- We used Trello for the first time on a Hackathon to create a Kanban board which helped us to plan our work flow, prioritise tasks and manage our time
+- We learnt the importance of breaking a game down to it's essence and making the MVP as simple as it can be to function. We had to plan which classes the game needed and what state and behaviours each class would need. Then we broke each of the behaviours down to a level were we could start coding.
+- After completing the MVP and starting work on the MLP tasks, take the time to think about which functionality would make the biggest impact on the user and start with that first.

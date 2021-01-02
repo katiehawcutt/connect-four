@@ -16,6 +16,7 @@ class Game {
     this.grid = new Grid();
   }
 
+  // the below code could be refactored
   play() {
     alert(
       `${this.players[this.currentPlayerIndex].name}, it's your turn first!`
@@ -72,7 +73,3 @@ class Game {
     });
   }
 }
-/* this.currentPlayerIndex++;
-    if (this.currentPlayerIndex >= this.players.length) {
-      this.currentPlayerIndex = 0;
-    } */

@@ -1,7 +1,5 @@
 # Connect 4
 
-### Class List
-
 #### Class of square
 
 State:
@@ -64,7 +62,7 @@ We are making Connect 4 for 2 players to play it locally on a computer.
 
 - When a player clicks on a square will either turn red or blue depending on the player's turn.
 - The game will keep looping around each player until there are four squares of one color in a row.
-- To work up when this is we need to come up with an alghorithm
+- To work up when this is we need to come up with an algorithm
 - When this happens use alert to say who the winner is
 
 ## MVP Plan
