@@ -16,7 +16,7 @@ class Game {
     this.grid = new Grid();
   }
 
-  // the below code could be refactored
+  // the below code could be refactored to avoid reptition
   play() {
     alert(
       `${this.players[this.currentPlayerIndex].name}, it's your turn first!`

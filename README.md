@@ -8,7 +8,7 @@
 
 _The Week 5 Hackathon challenge was to design and build our own game. It was an opportunity to cement everything we'd learnt that week about object oriented programming (OOP), as well as planning, ideating and coming up with an MVP. We had two days to work on this hackathon rather than the usual one day and we were working in pairs._
 
-### Main Learning Points:
+## Main Learning Points:
 
 - I learnt a lot about OOP:
   - The two building blocks of Classes in Object Oriented Programming are State and Behaviours
@@ -22,6 +22,38 @@ _The Week 5 Hackathon challenge was to design and build our own game. It was an 
 - After completing the MVP and starting work on the MLP tasks, take the time to think about which functionality would make the biggest impact on the user and start with that first.
 - As part of our MLP we added buttons to the bottom of the grid which were used to select the column rather than prompt. This was interesting as it turned the game from being loop driven to event driven.
 
-### Stretch Goals:
+## Stretch Goals:
 
 - Create and implement an algorithm which will find the winner
+
+## Built with:
+
+- HTML
+- CSS
+- JavaScript
+- OOP principles
+
+## Getting Started:
+
+Clone the repo as instructed below
+
+## Prerequisites:
+
+No prerequisites
+
+## Installation
+
+1.  Clone the repo
+
+`git clone https://github.com/katiehawcutt/connect-four.git`
+
+2. Run the index.html in a browser
+
+## Usage
+
+1. Enter player names and color choices
+2. Press start
+3. A player will be instructed to go first
+4. Play the game!
+
+Please note: Winner algorithm not yet implemented
