@@ -1,27 +1,31 @@
-const playerOneName = document.querySelector("#player1Name");
-const playerOneColor = document.querySelector("#player1Color");
-const playerTwoName = document.querySelector("#player2Name");
-const playerTwoColor = document.querySelector("#player2Color");
-const startGameButton = document.querySelector("#startGame");
+const form = document.querySelector("#player-inputs");
+const gameContainer = document.querySelector("#game-container");
 
 const players = [];
 
-startGameButton.addEventListener("click", () => {
-  players.push(
-    {
-      name: playerOneName.value,
-      color: playerOneColor.value,
-    },
-    {
-      name: playerTwoName.value,
-      color: playerTwoColor.value,
-    }
-  );
-  console.log(players);
-  const game = new Game(players);
-  game.play();
-  console.log(players);
-});
+form.addEventListener("submit", (e) => {
+  const [
+    playerOneName,
+    playerOneColor,
+    playerTwoName,
+    playerTwoColor,
+  ] = e.target;
 
-const grid = new Grid();
-grid.draw();
+  players.push(
+    new Player(
+      playerOneName.value === "" ? "Player 1" : playerOneName.value,
+      playerOneColor.value
+    ),
+    new Player(
+      playerTwoName.value === "" ? "Player 2" : playerTwoName.value,
+      playerTwoColor.value
+    )
+  );
+
+  const gridContainer = document.createElement("div");
+  gridContainer.id = "grid-container";
+  const grid = new Grid(gridContainer);
+  new Game(players, grid, gameContainer);
+
+  form.remove();
+});

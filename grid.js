@@ -1,5 +1,6 @@
 class Grid {
-  constructor() {
+  constructor(container) {
+    this.container = container;
     this.array = Array(7)
       .fill()
       .map(
@@ -10,27 +11,21 @@ class Grid {
       );
   }
   draw() {
-    const container = document.querySelector("#container"); // moved to top so out of loop
-    container.innerHTML = "";
+    this.container.innerHTML = "";
 
     this.array.forEach((column) => {
       const columnContainer = document.createElement("div");
       column.forEach((squareItem) => {
         const square = document.createElement("div");
-        square.style.backgroundColor = squareItem.color || "white";
+        square.style.backgroundColor = squareItem.isInWinningLine
+          ? "black"
+          : squareItem.color || "white";
         square.style.border = "black solid 2px";
         columnContainer.appendChild(square);
       });
-      container.appendChild(columnContainer);
+      this.container.appendChild(columnContainer);
     });
-    console.log(this.array[0]);
   }
-
-  // write a new method that takes in the columnNumber, playerColor
-  // columnNumber - 1 and save it in a variable called index
-  // array[index].find() first square that color = null; and change the color of the square to the playerColor
-  // also call pickSquare(PlayerColor)
-  // implemented below...
 
   chooseSquare(columnNumber, playerColor) {
     const index = columnNumber - 1;
@@ -43,22 +38,110 @@ class Grid {
     this.draw();
   }
 
+  highlightWinner(squares) {
+    squares.forEach((square) => (square.isInWinningLine = true));
+    this.draw();
+  }
+
   checkWinner() {
-    const winner = [];
-    console.log(this.array[0]);
-    for (let i = 0; i < this.array[0].length; i++) {
-      if (
-        this.array[0][i].color === this.array[0][i + 1].color &&
-        this.array[0][i].color !== null
-      ) {
-        console.log(this.array[0][i].color);
-        console.log(this.array[0][i + 1].color);
-        console.log(winner);
-        return winner.push(true);
-      } else {
-        console.log(winner);
-        return winner.push(false);
+    const board = this.array;
+    // Check horizontal
+    for (let row = 0; row < 4; row++) {
+      for (let column = 0; column < 6; column++) {
+        if (
+          checkLine(
+            board[row][column],
+            board[row + 1][column],
+            board[row + 2][column],
+            board[row + 3][column]
+          )
+        ) {
+          this.highlightWinner([
+            board[row][column],
+            board[row + 1][column],
+            board[row + 2][column],
+            board[row + 3][column],
+          ]);
+          return board[row][column].color;
+        }
       }
     }
+
+    // Check vertical
+    for (let row = 0; row < 7; row++) {
+      for (let column = 0; column < 3; column++) {
+        if (
+          checkLine(
+            board[row][column],
+            board[row][column + 1],
+            board[row][column + 2],
+            board[row][column + 3]
+          )
+        ) {
+          this.highlightWinner([
+            board[row][column],
+            board[row][column + 1],
+            board[row][column + 2],
+            board[row][column + 3],
+          ]);
+          return board[row][column].color;
+        }
+      }
+    }
+
+    // // Check down-left
+    for (let row = 0; row < 4; row++) {
+      for (let column = 0; column < 3; column++) {
+        if (
+          checkLine(
+            board[row][column],
+            board[row + 1][column + 1],
+            board[row + 2][column + 2],
+            board[row + 3][column + 3]
+          )
+        ) {
+          this.highlightWinner([
+            board[row][column],
+            board[row + 1][column + 1],
+            board[row + 2][column + 2],
+            board[row + 3][column + 3],
+          ]);
+          return board[row][column].color;
+        }
+      }
+    }
+
+    // // Check down-right
+    for (let row = 3; row < 7; row++) {
+      for (let column = 0; column < 3; column++) {
+        if (
+          checkLine(
+            board[row][column],
+            board[row - 1][column + 1],
+            board[row - 2][column + 2],
+            board[row - 3][column + 3]
+          )
+        ) {
+          this.highlightWinner([
+            board[row][column],
+            board[row - 1][column + 1],
+            board[row - 2][column + 2],
+            board[row - 3][column + 3],
+          ]);
+          return board[row][column].color;
+        }
+      }
+    }
+
+    return null;
   }
+}
+
+function checkLine(a, b, c, d) {
+  return (
+    a.color != null &&
+    a.color == b.color &&
+    a.color == c.color &&
+    a.color == d.color
+  );
 }

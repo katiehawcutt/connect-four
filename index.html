@@ -3,32 +3,55 @@
   <head>
     <title>Connect Four!</title>
     <link href="styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <h1>Connect Four</h1>
     </header>
     <main>
-      <form onsubmit="return false">
-        <label for="player1Name">Player One:</label>
-        <input type="text" id="player1Name" />
-        <label for="player1Color">Color:</label>
-        <input type="color" id="player1Color" />
-        <label for="player2Name">Player Two:</label>
-        <input type="text" id="player2Name" />
-        <label for="player2Color">Color:</label>
-        <input type="color" id="player2Color" />
+      <form onsubmit="return false" id="player-inputs">
+        <div>
+          <label for="player1Name">Player One:</label>
+          <input
+            type="text"
+            id="player1Name"
+            placeholder="Enter player 1 name"
+          />
+          <label for="player1Color">Color:</label>
+          <input type="color" value="#DB0FA5" id="player1Color" />
+        </div>
+        <div>
+          <label for="player2Name">Player Two:</label>
+          <input
+            type="text"
+            id="player2Name"
+            placeholder="Enter player 2 name"
+          />
+          <label for="player2Color">Color:</label>
+          <input type="color" value="#FFF024" id="player2Color" />
+        </div>
+        <button id="startGame">START</button>
       </form>
-      <button id="startGame">Start Game!</button>
-      <div id="container"></div>
-      <div id="buttonContainer">
-        <button id="one">1</button>
-        <button id="two">2</button>
-        <button id="three">3</button>
-        <button id="four">4</button>
-        <button id="five">5</button>
-        <button id="six">6</button>
-        <button id="seven">7</button>
+      <div id="game-container">
+        <!-- <div id="message-container">
+          <p id="gameDisplayText"></p>
+          <button id="playAgainButton">PLAY AGAIN</button>
+        </div>
+        <div id="grid-container"></div>
+        <div id="buttonContainer">
+          <button id="one" class="numberChoice">1</button>
+          <button id="two" class="numberChoice">2</button>
+          <button id="three" class="numberChoice">3</button>
+          <button id="four" class="numberChoice">4</button>
+          <button id="five" class="numberChoice">5</button>
+          <button id="six" class="numberChoice">6</button>
+          <button id="seven" class="numberChoice">7</button>
+        </div> -->
       </div>
     </main>
     <script src="square.js"></script>

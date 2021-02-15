@@ -1,9 +1,10 @@
 class Square {
-    constructor(){
-        this.color = null;
-    }
+  constructor() {
+    this.color = null;
+    this.isInWinningLine = false;
+  }
 
-    pickSquare(color){
-        this.color = color;
-    }
+  pickSquare(color) {
+    this.color = color;
+  }
 }

@@ -4,37 +4,37 @@ body {
 }
 
 * {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: Abel;
 }
 
 header {
   width: 100vw;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
 }
 
 h1 {
   text-decoration: underline;
-  font-size: 50px;
-}
-#container {
-  display: grid;
-  grid-template-columns: repeat(7, 80px);
-  grid-template-rows: repeat(1, 480px);
-  transform: scaleY(-1);
-  grid-gap: 2px;
+  font-size: 2em;
 }
 
-#container > div {
+#grid-container {
   display: grid;
-  grid-template-columns: repeat(1, 80px);
-  grid-template-rows: repeat(6, 80px);
-  grid-gap: 2px;
+  grid-template-columns: repeat(7, 8vh);
+  grid-template-rows: repeat(1, 53vh);
+  transform: scaleY(-1);
+  grid-gap: 1vh;
 }
+
+#grid-container > div {
+  display: grid;
+  grid-template-columns: repeat(1, 8vh);
+  grid-template-rows: repeat(6, 8vh);
+  grid-gap: 1vh;
+}
+
 main {
   width: 100vw;
   display: flex;
@@ -43,9 +43,14 @@ main {
   flex-direction: column;
 }
 
-button {
-  width: 75px;
-  margin-left: 2px;
+#number-buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.number-button {
+  width: 8vh;
+  /* margin-left: 1vh; */
   margin-top: 7px;
   border-radius: 2px;
   background-color: black;
@@ -53,19 +58,61 @@ button {
   background-color: skyblue;
   color: black;
   border: 2px solid black;
+  text-align: center;
 }
 
 button:hover {
   background-color: springgreen;
 }
+
 input {
   margin: 10px;
 }
 
 #startGame {
-  margin: 30px;
+  border-radius: 2px;
+  margin: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: skyblue;
+  color: black;
+  border: 2px solid black;
+  display: initial;
 }
 
 #startGame:hover {
   transform: scale(1.1);
+  background-color: springgreen;
+}
+
+#playAgainButton {
+  border-radius: 2px;
+  margin: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: skyblue;
+  color: black;
+  border: 2px solid black;
+  display: none;
+}
+
+#playAgainButton:hover {
+  transform: scale(1.1);
+  background-color: springgreen;
+}
+
+#gameDisplayText {
+  display: none;
+  font-size: 25px;
+  font-weight: bold;
+  color: #3006c6;
+  margin: 15px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2px;
 }
