@@ -42,8 +42,8 @@ class Game {
       this.handleWin();
       return;
     }
-    this.displayTurn();
     this.nextPlayer();
+    this.displayTurn();
   }
 
   nextPlayer() {
@@ -55,13 +55,12 @@ class Game {
 
   handleWin() {
     this.messageContainer.innerText = `${this.currentPlayer.name} wins!`;
-    this.messageContainer.style.color = "springgreen";
-    this.messageContainer.style.backgroundColor = "black";
-    this.messageContainer.style.border = "2px white solid";
+    this.messageContainer.style.fontSize = "40px";
     this.isAcceptingInput = false;
 
     const button = document.createElement("button");
-    button.innerText = "Play Again?";
+    button.id = "play-again-button";
+    button.innerText = "Play again?";
     button.addEventListener("click", () => this.reset());
     this.messageContainer.appendChild(button);
   }
@@ -69,8 +68,10 @@ class Game {
   reset() {
     this.grid = new Grid(this.grid.container);
     this.grid.draw();
+    this.nextPlayer();
     this.messageContainer.innerText = `${this.currentPlayer.name}'s turn first`;
     this.isAcceptingInput = true;
+    this.messageContainer.style.fontSize = "20px";
   }
 
   createButtons() {
